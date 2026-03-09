@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemanth Prathigadapa - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f0f0f;
+            --secondary: #1a1a1a;
+            --accent: #0066cc;
+            --accent-light: #e8f0ff;
+            --light: #f5f5f5;
+            --muted: #888;
+            --border: #2a2a2a;
+            --healthcare: #00a86b;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1a2e 100%);
+            color: var(--light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Animated background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: relative;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-top: 15px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--light);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 40px;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        section {
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-highlight {
+            background: rgba(0, 102, 204, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .about-highlight strong {
+            color: var(--accent);
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience-item {
+            border-left: 3px solid var(--accent);
+            padding-left: 25px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-item p {
+            color: var(--muted);
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        .achievement {
+            margin-top: 12px;
+            color: var(--light);
+            padding-left: 15px;
+            border-left: 2px solid var(--healthcare);
+            background: rgba(0, 168, 107, 0.05);
+            padding: 10px 15px;
+            border-radius: 2px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid var(--border);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            background: rgba(0, 102, 204, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
+        }
+
+        .skill-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-item {
+            background: rgba(26, 26, 26, 0.4);
+            border: 1px solid var(--border);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .project-item h3 {
+            margin-top: 0;
+        }
+
+        .impact {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 168, 107, 0.08);
+            border-radius: 4px;
+            border-left: 3px solid var(--healthcare);
+        }
+
+        .impact-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--healthcare);
+            min-width: 80px;
+        }
+
+        .impact-text {
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--accent);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+            text-decoration: none;
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 102, 204, 0.05);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .impact {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="subtitle">Healthcare Logistics Specialist</div>
+        <h1>Hemanth Prathigadapa</h1>
+        <p class="tagline">Mechanical Engineer driving operational excellence in healthcare supply chain, optimizing systems for patient outcomes</p>
+        <div class="contact-info">
+            <span>📱 0478 919 043</span>
+            <span>📧 <a href="mailto:jsphhemanth@gmail.com">jsphhemanth@gmail.com</a></span>
+            <span>💼 <a href="https://linkedin.com/in/jsphhemanth">LinkedIn</a></span>
+            <span>📍 Sydney, NSW 2127</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Key Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                I'm a Mechanical Engineer specializing in complex healthcare logistics, ensuring the right system is in the right place at the right time—saving both time and cost for organizations. With 5 years of progressive experience across Amazon and healthcare, I've developed a reputation for taking full ownership, proactively driving work forward, and delivering measurable impact.
+            </p>
+            <div class="about-highlight">
+                <strong>Leadership Moment:</strong> During my manager's parental leave, I stepped into a quasi-managerial role and helped drive a <strong>70% increase in revenue</strong>. My hands-on approach prevented critical delays in medical equipment transport to Vanuatu, directly protecting patient outcomes and service continuity.
+            </div>
+            <p style="margin-top: 15px; color: var(--muted);">
+                I combine technical capability with a solutions-oriented approach—analyzing data to uncover inefficiencies, then implementing changes that stick. Whether coordinating urgent logistics, optimizing inventory systems, or leading teams through high-pressure situations, I focus on outcomes that matter: patient safety, operational reliability, and organizational growth.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <h3>Inventory Coordinator</h3>
+                <p class="meta">Philips Healthcare ANZ • Sydney, Australia • 11/2024 – Present</p>
+                <p>Driving operational excellence in medical equipment supply chain for critical care and diagnostic systems.</p>
+                <div class="achievement">
+                    ✓ Analyzed device margin and freight reports in SAP, contributing to €1.02M profit uplift in a single month
+                </div>
+                <div class="achievement">
+                    ✓ Achieved 0 stock-outs across Ultrasound/IGT spares using auto-forecasted reorder points, avoiding cancellations of urgent procedures and helping clinicians treat patients without delay
+                </div>
+                <div class="achievement">
+                    ✓ Shortened average delivery time by 3–4 days through data cleansing, task re-sequencing, and tighter 3PL hand-offs
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Delivery Associate</h3>
+                <p class="meta">Amazon • Sydney, Australia • 06/2023 – 11/2024</p>
+                <p>Managed high-volume parcel processing and warehouse operations while maintaining safety and compliance standards.</p>
+                <div class="achievement">
+                    ✓ Processed 500+ parcels/day at ~1 min/parcel while maintaining low exception rates and safe practices
+                </div>
+                <div class="achievement">
+                    ✓ Introduced driver-ID verification system; reduced identity errors by ~50% and accelerated resolution time
+                </div>
+                <div class="achievement">
+                    ✓ Supported route rebalancing and staging; increased same-day hits by ~50% during peak periods
+                </div>
+                <div class="achievement">
+                    ✓ Trusted sole custodian during manager absences; managed Sydney floor and AUD ~100,000 warehouse inventory with zero compliance breaches
+                </div>
+                <div class="achievement">
+                    ✓ Coordinated severe weather response (Sydney heavy rain): rerouted deliveries, communicated with drivers, re-staged operations—cleared backlog and ensured same-day completion by 9:00 PM
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>General Service Officer</h3>
+                <p class="meta">Royal Rehab Private Hospital • Sydney, Australia • 11/2022 – 04/2023</p>
+                <p>Coordinated patient logistics and kitchen operations in clinical environment.</p>
+                <div class="achievement">
+                    ✓ Maintained reliable kitchen inventory and supplier schedules with 0 disruptions to clinical timetables
+                </div>
+                <div class="achievement">
+                    ✓ Coordinated patient logistics/rooming with wards; recorded ~90% satisfaction
+                </div>
+                <div class="achievement">
+                    ✓ Achieved 100% on internal food-safety/hygiene audits
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Shipping and Delivery Support Associate</h3>
+                <p class="meta">Amazon • Hyderabad, India • 10/2018 – 02/2022</p>
+                <p>Resolved delivery issues, investigated risk cases, and improved customer transparency at scale.</p>
+                <div class="achievement">
+                    ✓ Resolved recurring delivery issues (label mismatch, address parsing, driver ID); maintained CSAT ~95%
+                </div>
+                <div class="achievement">
+                    ✓ Investigated risk cases and recommended mitigations; consistently exceeded 50% closure-quality target
+                </div>
+                <div class="achievement">
+                    ✓ Improved customer transparency by 50% by tightening refund/fund-release timelines with operations
+                </div>
+                <div class="achievement">
+                    ✓ <strong>COVID Response:</strong> Resolved urgent vaccine delivery when driver and customer were unreachable. Coordinated three-way conference call via Amazon (after seeking supervisor approval) and ensured vaccine reached hospital within 10 minutes—within customer's critical 30-minute window. Recognized as Best Performer.
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Project Management</h4>
+                    <p>End-to-end coordination of complex initiatives with tight timelines and high stakes</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Financial Analysis</h4>
+                    <p>Device margin, freight cost analysis, and profit optimization in SAP</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Stakeholder Management</h4>
+                    <p>Cross-functional coordination across clinical, operations, and logistics teams</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Technical Reporting</h4>
+                    <p>Data-driven insights and transparent communication of complex metrics</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Supply Chain Optimization</h4>
+                    <p>Inventory forecasting, 3PL coordination, and delivery time reduction</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Leadership & Ownership</h4>
+                    <p>Proactive decision-making and full accountability in high-pressure environments</p>
+                </div>
+                <div class="skill-card">
+                    <h4>MS Office Suite</h4>
+                    <p>Excel, PowerPoint, Word for reporting and analysis</p>
+                </div>
+                <div class="skill-card">
+                    <h4>SAP MP1</h4>
+                    <p>Systems planning and inventory data management</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Achievements Section -->
+        <section id="achievements">
+            <h2>Key Achievements</h2>
+
+            <div class="project-item">
+                <h3>Saved ~1,000 Children from Critical Care</h3>
+                <p class="meta">Philips Healthcare & Previous Roles</p>
+                <p>By ensuring medical systems were supplied at the right time and in the right condition, I directly enabled clinicians to treat critically ill children without preventable delays—transforming patient outcomes.</p>
+                <div class="impact">
+                    <div class="impact-number">~1,000</div>
+                    <div class="impact-text">Children treated without supply-related delays</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Patient Outcomes</span>
+                    <span class="tag">Healthcare Logistics</span>
+                    <span class="tag">Critical Care</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>70% Revenue Increase During Manager Leave</h3>
+                <p class="meta">Philips Healthcare • 2024</p>
+                <p>Stepped into quasi-managerial role and delivered €1.02M profit uplift in a single month through strategic analysis, margin optimization, and operational excellence—proving capability at senior level.</p>
+                <div class="impact">
+                    <div class="impact-number">70%</div>
+                    <div class="impact-text">Revenue increase while covering for manager</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Financial Performance</span>
+                    <span class="tag">Operations</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Zero Stock-Out Achievement in Critical Spares</h3>
+                <p class="meta">Philips Healthcare • 2024</p>
+                <p>Implemented auto-forecasted reorder points across Ultrasound and IGT spares inventory, achieving 0 stock-outs and preventing cancellations of urgent diagnostic and interventional procedures.</p>
+                <div class="impact">
+                    <div class="impact-number">0</div>
+                    <div class="impact-text">Stock-outs in critical medical equipment spares</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Inventory Optimization</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Forecasting</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Delivery Time Reduction & Peak Period Performance</h3>
+                <p class="meta">Amazon & Philips Healthcare</p>
+                <p>Through data cleansing, task re-sequencing, and tighter logistics hand-offs, shortened average delivery time by 3–4 days. At Amazon, increased same-day hits by ~50% during peak periods through route rebalancing.</p>
+                <div class="impact">
+                    <div class="impact-number">3-4 days</div>
+                    <div class="impact-text">Average delivery time reduction</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Process Optimization</span>
+                    <span class="tag">Logistics</span>
+                    <span class="tag">Performance</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Critical Vaccine Delivery During COVID-19</h3>
+                <p class="meta">Amazon India • 2020–2021</p>
+                <p>When both driver and customer were unreachable, I coordinated an innovative three-way conference call (after securing supervisor approval), ensuring vaccine reached hospital within 10 minutes—meeting the critical 30-minute delivery window. Recognized as Best Performer for this action.</p>
+                <div class="impact">
+                    <div class="impact-number">10 mins</div>
+                    <div class="impact-text">Delivery completed within critical 30-minute window</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Crisis Management</span>
+                    <span class="tag">Innovation</span>
+                    <span class="tag">Leadership</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm actively exploring opportunities to apply my healthcare logistics expertise and operational leadership at organizations like Impellam Group. Let's connect and discuss how I can drive impact for your team.</p>
+            <div class="contact-links">
+                <a href="mailto:jsphhemanth@gmail.com" class="contact-link">📧 Email</a>
+                <a href="https://linkedin.com/in/jsphhemanth" class="contact-link">💼 LinkedIn</a>
+                <a href="tel:0478919043" class="contact-link">📱 Phone</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hemanth Prathigadapa. All rights reserved. Mechanical Engineer | Healthcare Logistics Specialist.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
